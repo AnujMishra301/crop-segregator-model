@@ -1,0 +1,54 @@
+# Baseline Model Configuration Specification
+
+# General Settings
+experiment_name: "baseline_yolov8n_weed_detection"
+seed: 42
+
+# Data Paths
+dataset_dir: "dataset"
+train_images: "dataset/train/images"
+train_labels: "dataset/train/labels"
+val_images: "dataset/val/images"
+val_labels: "dataset/val/labels"
+test_images: "dataset/test/images"
+test_labels: "dataset/test/labels"
+
+# Dataset Parameters
+img_size: 640
+num_classes: 4
+class_names:
+  0: "weed"
+  1: "crop"
+  2: "grass_lawn"
+  3: "other"
+
+# Training Hyperparameters
+architecture: "yolov8n"
+weights_pretrained: "yolov8n.pt" # Or PyTorch baseline
+batch_size: 16
+epochs: 15
+learning_rate: 0.005
+optimizer: "AdamW"
+weight_decay: 0.0005
+patience: 5 # Early stopping patience
+
+# Augmentation Settings
+hsv_h: 0.015
+hsv_s: 0.7
+hsv_v: 0.4
+degrees: 90.0
+translate: 0.1
+scale: 0.5
+fliplr: 0.5
+flipud: 0.5
+mosaic: 1.0
+
+# Inference & Post-processing
+conf_threshold: 0.70  # Project confidence threshold for weed spray trigger
+iou_threshold: 0.45   # NMS IoU threshold
+
+# Output Paths
+output_dir: "ml/output"
+model_save_path: "ml/models/weights/best_baseline.pt"
+final_model_save_path: "ml/models/weights/final_baseline.pt"
+results_report: "BASELINE_RESULTS.md"

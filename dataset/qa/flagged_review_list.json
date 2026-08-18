@@ -1,0 +1,51 @@
+[
+  {
+    "file": "field02_frame004.txt",
+    "line": "Line 8 (crop) & Line 17 (weed)",
+    "cls": "weed vs crop",
+    "type": "High Overlap Inconsistent Label",
+    "reason": "Weed and Crop bounding boxes overlap significantly with IoU=0.520"
+  },
+  {
+    "file": "field02_frame011.txt",
+    "line": "Line 7 (crop) & Line 15 (weed)",
+    "cls": "weed vs crop",
+    "type": "High Overlap Inconsistent Label",
+    "reason": "Weed and Crop bounding boxes overlap significantly with IoU=0.543"
+  },
+  {
+    "file": "field03_frame017.txt",
+    "line": "Line 14 (crop) & Line 16 (weed)",
+    "cls": "weed vs crop",
+    "type": "High Overlap Inconsistent Label",
+    "reason": "Weed and Crop bounding boxes overlap significantly with IoU=0.507"
+  },
+  {
+    "file": "field03_frame017.txt",
+    "line": "Line 14 (crop) & Line 18 (weed)",
+    "cls": "weed vs crop",
+    "type": "High Overlap Inconsistent Label",
+    "reason": "Weed and Crop bounding boxes overlap significantly with IoU=0.522"
+  },
+  {
+    "file": "field03_frame020.txt",
+    "line": "Line 3 (crop) & Line 13 (weed)",
+    "cls": "weed vs crop",
+    "type": "High Overlap Inconsistent Label",
+    "reason": "Weed and Crop bounding boxes overlap significantly with IoU=0.563"
+  },
+  {
+    "file": "field04_frame009.txt",
+    "line": "Line 1 (crop) & Line 18 (weed)",
+    "cls": "weed vs crop",
+    "type": "High Overlap Inconsistent Label",
+    "reason": "Weed and Crop bounding boxes overlap significantly with IoU=0.525"
+  },
+  {
+    "file": "field05_frame017.txt",
+    "line": "Line 5 (crop) & Line 13 (weed)",
+    "cls": "weed vs crop",
+    "type": "High Overlap Inconsistent Label",
+    "reason": "Weed and Crop bounding boxes overlap significantly with IoU=0.558"
+  }
+]

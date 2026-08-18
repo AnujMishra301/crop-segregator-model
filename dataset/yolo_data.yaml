@@ -1,0 +1,10 @@
+path: C:\Users\mishr\OneDrive\Documents\crop-seggregation-model\dataset
+train: train/images
+val: val/images
+test: test/images
+
+names:
+  0: weed
+  1: crop
+  2: grass_lawn
+  3: other

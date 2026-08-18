@@ -1,0 +1,55 @@
+{
+  "model_name": "YOLOv8n-WeedDetector",
+  "model_version": "v1.0",
+  "release_type": "FROZEN_AI_BASELINE",
+  "status": "FROZEN_BASELINE_FOR_REALWORLD_VALIDATION",
+  "training_dataset_version": "v1.0-expanded",
+  "dataset_sha256_hash": "0763bb202ad64847",
+  "class_mapping": {
+    "0": "weed",
+    "1": "crop",
+    "2": "grass_lawn",
+    "3": "other"
+  },
+  "input_resolution": [
+    640,
+    640
+  ],
+  "preprocessing_method": "Letterbox padding to 640x640, BGR-to-RGB, [0, 1] normalization",
+  "postprocessing_method": "Non-Maximum Suppression (NMS IoU=0.45) + Operational Confidence Thresholding",
+  "confidence_threshold": 0.7,
+  "nms_threshold": 0.45,
+  "crop_safety_iou_limit": 0.25,
+  "training_configuration": {
+    "learning_rate": 0.001,
+    "epochs": 10,
+    "batch_size": 16,
+    "optimizer": "AdamW",
+    "random_seed": 42
+  },
+  "environment_metadata": {
+    "framework_pytorch_version": "2.13.0+cpu",
+    "ultralytics_version": "8.4.121",
+    "onnxruntime_version": "1.29.0",
+    "python_version": "3.13.5",
+    "os_platform": "win32"
+  },
+  "model_formats": {
+    "pytorch_weights": "best_model_v1.0.pt (5.96 MB)",
+    "onnx_fp32": "model_fp32.onnx (11.7 MB)",
+    "onnx_fp16": "model_fp16.onnx (5.89 MB)",
+    "onnx_int8": "model_int8.onnx (3.0 MB)"
+  },
+  "evaluation_metrics_held_out_test": {
+    "weed_precision": 1.0,
+    "weed_recall": 0.885,
+    "f1_score": 0.939,
+    "map50": 0.0862,
+    "map50_95": 0.0301,
+    "crop_false_positive_rate": "0.00%",
+    "inference_latency_ms": 63.5,
+    "fps": 14.8
+  },
+  "test_set_identifier": "dataset/test (Held-Out Test Set, 20 images)",
+  "git_release_tag": "v1.0-baseline-release"
+}
