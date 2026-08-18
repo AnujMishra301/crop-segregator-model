@@ -1,0 +1,20 @@
+# Core Machine Learning & Computer Vision
+ultralytics>=8.0.0
+torch>=2.0.0
+torchvision>=0.15.0
+opencv-python>=4.8.0
+pillow>=9.5.0
+numpy>=1.24.0
+
+# Data Analysis & Plotting
+pandas>=2.0.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+pyyaml>=6.0
+
+# Edge Model Export & Runtime
+onnx>=1.14.0
+onnxruntime>=1.15.0
+
+# Web Demonstration Dashboard
+streamlit>=1.25.0

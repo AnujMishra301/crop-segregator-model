@@ -21,6 +21,7 @@ except ImportError:
     ULTRALYTICS_AVAILABLE = False
 
 CLASS_NAMES = {0: "weed", 1: "crop", 2: "grass_lawn", 3: "other"}
+CANONICAL_SPRAY_CONF_THRESHOLD = 0.70
 
 class SprayDecisionEngine:
     """Operational decision layer governing weed target validation and spray eligibility."""
@@ -29,7 +30,8 @@ class SprayDecisionEngine:
                  crop_safety_iou_thresh=0.25, min_bbox_size=8.0, min_weed_area=0.00015):
         self.config = load_config()
         self.weights_path = weights_path or self.config["model_save_path"]
-        self.conf_threshold = conf_threshold
+        # Default operational confidence threshold is strictly 0.70
+        self.conf_threshold = conf_threshold if conf_threshold is not None else CANONICAL_SPRAY_CONF_THRESHOLD
         self.iou_threshold = iou_threshold
         self.crop_safety_iou_thresh = crop_safety_iou_thresh
         self.min_bbox_size = min_bbox_size
@@ -97,9 +99,11 @@ class SprayDecisionEngine:
                 rejection_reason = f"Normalized weed area ({weed['area_norm']:.6f}) below minimum threshold ({self.min_weed_area})"
             
             # Check Operational Confidence Threshold (>= 0.70)
-            elif weed["confidence"] < self.conf_threshold:
+            # HARD SAFETY GUARD: Spray eligibility requires confidence >= 0.70
+            elif weed["confidence"] < CANONICAL_SPRAY_CONF_THRESHOLD or weed["confidence"] < self.conf_threshold:
                 status = "CONFIDENCE_INSUFFICIENT"
-                rejection_reason = f"Confidence ({weed['confidence']:.4f}) below operational threshold ({self.conf_threshold})"
+                spray_eligible = False
+                rejection_reason = f"Confidence ({weed['confidence']:.4f}) below operational threshold (0.70)"
             
             else:
                 status = "CONFIRMED_TARGET"
