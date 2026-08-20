@@ -16,11 +16,11 @@ test_labels: "dataset/test/labels"
 # Dataset Parameters
 img_size: 640
 num_classes: 4
+num_classes: 2
+
 class_names:
-  0: "weed"
-  1: "crop"
-  2: "grass_lawn"
-  3: "other"
+  0: "crop"
+  1: "weed"
 
 # Training Hyperparameters
 architecture: "yolov8n"
@@ -49,6 +49,6 @@ iou_threshold: 0.45   # NMS IoU threshold
 
 # Output Paths
 output_dir: "ml/output"
-model_save_path: "ml/models/weights/best_baseline.pt"
+model_save_path: "models/experiments/agridatavalue_yolo26n_full/weights/best.pt"
 final_model_save_path: "ml/models/weights/final_baseline.pt"
 results_report: "BASELINE_RESULTS.md"

@@ -14,7 +14,10 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 from ml.config.config_loader import load_config
 from src.spray_decision import SprayDecisionEngine
 
-CLASS_NAMES = {0: "weed", 1: "crop", 2: "grass_lawn", 3: "other"}
+CLASS_NAMES = {
+    0: "crop",
+    1: "weed"
+}
 
 class RealTimeInferenceEngine:
     """High-performance inference execution unit for real-time drone vision."""
